@@ -39,7 +39,6 @@ def singlePost(request, post_slug):
         commentForm.instance.post = post
         commentForm.save()
         return redirect("single-post/")
-    context = get_context(request)
     context["post"] = post
     context["commentform"] = commentForm
     context["comments"] = comments

@@ -1,6 +1,8 @@
 from blog.models import Post, Category
 from Marketing.forms import SubscriberForm
 from django.db.models import Count, Q
+from django.contrib import messages
+from django.shortcuts import redirect
 
 def counting_categories():
     queryset = Post\
@@ -18,7 +20,7 @@ def get_context(request):
     context = {'posts': posts,
                'categories': categories,
                'latest_posts': latest_posts,
-               'category_counting': counting_categories,
+               'category_counting': category_counting,
                'form': form,
                }
     return context
