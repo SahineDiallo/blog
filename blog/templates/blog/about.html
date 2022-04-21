@@ -1,29 +1,31 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 {% block nav_about %}{% endblock nav_about %}
 {% block content %}
-<main id="main"><!--CONTENT--><article itemscope="" itemtype="http://schema.org/Article" class="main-article text-content"><h1 class="offscreen">Papis Sahine Diallo</h1><img src="/demo/about-david-walsh.jpg" alt="Papis Sahine Diallo">
-
-  My name is Papis Sahine Diallo. I'm a  web developer and software engineer using mainly <b>Python</b> and <b>Django</b>. In the web world I'm
-   work on algorithmic problems like:
-  <ul>
+<main id="main"><!--CONTENT--><article itemscope="" itemtype="http://schema.org/Article" class="main-article text-content">
+   <h1 class="offscreen text-center">Papis Sahine Diallo</h1>
+   <img style="border-radius:5px; margin:auto; display:block; margin-bottom: 30px;" src="{% static 'blog/images/psdd.jpg' %}" alt="Papis Sahine Diallo">
+   My name is Papis Sahine Diallo. I'm a  web developer and software engineer using mainly <b>Python</b> and <b>Django</b>. 
+   In the web world I'm work on algorithmic problems like:
+  <ul class="pl-0">
      <li style="list-style-type: none">
-  <ul>
-     <li>Findind the shortest path using A* algorithm. <a href="#">take a look at this project here</a></li>
-     <li>Finance Stock Market Plotting with pandas and matplotlib<a href="#" rel="nofollow"> Here</a></li>
-     <li>Sorting Algorithms Visualization like<a href="/"> merge and quick sort.</a> </li>
-  </ul>
-  </li>
+      <ul>
+         <li>Findind the shortest path using A* algorithm. <a href="#">take a look at this project here</a></li>
+         <li>Finance Stock Market Plotting with pandas and matplotlib<a href="#" rel="nofollow"> Here</a></li>
+         <li>Sorting Algorithms Visualization like<a href="/"> merge and quick sort.</a> </li>
+      </ul>
+      </li>
   </ul>
   In the world of the web development I worked on various projects such as:
-  <ul>
+  <ul class="pl-0">
      <li style="list-style-type: none">
-  <ul>
-     <li>Project management System named<a href="//sitepen.com" rel="nofollow"> Saga Software</a></li>
-     <li>A real time <a href="/" rel="nofollow">Social Medai app</a> with django and django-channels</li>
-     <li><a href="/" rel="nofollow">Inventory Management System</a></li>
-     <li>A blog Post which is My Current Blog<a href="#" rel="nofollow"> PSDiallo Blog</a></li>
-  </ul>
-  </li>
+      <ul>
+         <li>Project management System named<a href="//sitepen.com" rel="nofollow"> Saga Software</a></li>
+         <li>A real time <a href="/" rel="nofollow">Social Medai app</a> with django and django-channels</li>
+         <li><a href="/" rel="nofollow">Inventory Management System</a></li>
+         <li>A blog Post which is My Current Blog<a href="#" rel="nofollow"> PSDiallo Blog</a></li>
+      </ul>
+      </li>
   </ul>
   I don't design the sites, I make them work.
   <h2>Technologies and Philosophy</h2>

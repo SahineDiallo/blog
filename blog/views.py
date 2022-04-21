@@ -6,11 +6,9 @@ from django.db.models import Count, Q
 from Marketing.models import Subscriber
 from .forms import CommentForm, ContactForm
 from fonctions.funtions import counting_categories, get_context, process_post_request
-from django.contrib import messages
 from django.conf import settings
 from django.template.context_processors import csrf
 from crispy_forms.utils import render_crispy_form
-from django.core.mail import EmailMessage
 from Api.utils import Util
 
 
