@@ -1,0 +1,60 @@
+{% load static %}
+{% load usernameFilter %}
+<div class="myNav fixed">
+	<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle ">
+		<i></i>
+	</a>
+	 
+	<span class="profile mt-2" id="myLogo">PSDiallo</span>
+</div>
+<aside id="colorlib-aside" role="complementary" class="js-fullheight">
+	<nav id="colorlib-main-menu" role="navigation">
+		<ul>
+			{% if user.is_authenticated %}
+			<li><a href="#" class="active-user" ><span class="first-letter">{{user.username}}</span></a></li>
+			{% else %}
+			<span><a href="{% url 'login' %}" class="btn btn-info mb-2 mt-2">Login</a></span>
+			{% endif %}
+			<li class="{% if request.get_full_path == "/"  %}colorlib-active {% endif %}"><a href="{% url 'home' %}">Home</a></li>
+			<li class="{% if "about" in request.get_full_path  %}colorlib-active {% endif %}"><a href="{% url 'about' %}">About</a></li>
+			<li ><a href="{% url 'contact' %}">Portfolio</a></li>
+			<li class="{% if "contact" in request.get_full_path %}colorlib-active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
+			{% if user.is_authenticated %}
+				<li class='dropdown' style="cursor: pointer;"><a href="{% url 'logout' %}">Logout</a></li>
+			{% endif %}
+		</ul>
+	</nav>
+
+	<div class="colorlib-footer">
+		<h1 id="colorlib-logo" class="mb-4"><a href="{% url 'home' %}" style="background-image: url({% static 'blog/images/textLogo1.jpg' %});">Papis <span>Diallo</span></a></h1>
+		<div class="mb-4 social-links">
+			<h3>Get In Touch Now</h3>
+			<a href="https://github.com/papisdiallo" target="_blank">
+				<svg>
+					<use href="#github" xlink:href="#github"></use>
+				</svg>
+			</a>
+			<a href = "mailto: psdiallo200@gmail.com">
+				<svg>
+					<use href="#gmail" xlink:href="#gmail"></use>
+				</svg>
+			</a>
+			{% comment %} <svg>
+				<use href="#facebook" xlink:href="#facebook"></use>
+			</svg>
+			<svg>
+				<use href="#twitter" xlink:href="#twitter"></use>
+			</svg> {% endcomment %}
+			<a href="https://www.linkedin.com/in/papis-sahine-diallo-2a1ba5223/" target="_blank">
+				<svg>
+					<use href="#linkedin" xlink:href="#linkedin"></use>
+				</svg>
+			</a>
+		</div>
+		<p class="pfooter">
+		  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved<br>
+		  This website is made by <a href="/"><b>PSDiallo</b></a>
+		</p>
+	</div>
+	{% include "blog/svg.html" %}
+</aside>

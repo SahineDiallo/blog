@@ -1,0 +1,81 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="">
+  <h1 class="mb-3">{{post.title}}</h1>
+  <div class="meta mb-4"><h5>{{post.date_posted|timesince}} ago</h5></div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.</p>
+  <p>
+    <img src="{{post.thumbnail.url}}" alt="" class="img-fluid">
+  </p>
+  <p>Molestiae cupiditate inventore animi, maxime sapiente optio, illo est nemo veritatis repellat sunt doloribus nesciunt! Minima laborum magni reiciendis qui voluptate quisquam voluptatem soluta illo eum ullam incidunt rem assumenda eveniet eaque sequi deleniti tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor minima esse vero ut ea, repudiandae suscipit!</p>
+  <h2 class="mb-3 mt-5">#2. Creative WordPress Themes</h2>
+  <p>{{post.content|safe}}</p>
+
+  <div class="tag-widget post-tag-container mb-5 mt-5">
+    <div class="tagcloud">
+      {% for tag in post.category.all %}
+      <a href="{% url 'category' tag.name %}" class="tag-cloud-link">{{tag.name}}</a>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <div class="about-author d-flex p-4 bg-light">
+    <div class="bio mr-4">
+      <img src="{{post.author.profile.profile_picture.url}}" alt="Image placeholder" class="img-fluid mb-4">
+    </div>
+
+    <div class="desc">
+      <h3>{{post.author.username}}</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+    </div>
+  </div>
+
+
+  <div class="pt-5 mt-5">
+
+    <h3 class="mb-5 font-weight-bold"><span id="count">{{comments_count}}</span> Comment(s)</h3>
+    <div id="commentUl">
+      <ul class="comment-list" id="comment-list"><ul class="comment-list">
+        {% for comment in post.comments.all %}
+          {% if not comment.author.is_developer_account %}
+          <li class="comment">
+            <div class="vcard bio">
+                <img src="{{comment.author.profile.profile_picture.url}}" alt="Image placeholder">
+            </div>
+            <div class="comment-body">
+                <h3>{{comment.author.username}}</h3>
+                <div class="meta">{{comment.date_commented|timesince}} ago</div>
+                <p>{{comment.content|safe}}</p>
+                <p><a href="#" class="reply">Reply</a></p>
+            </div>
+          </li>
+          {% endif %}                
+        {% endfor %}
+      </ul>
+    </div>
+  <!-- END comment-list -->
+    <div class="comment-form-wrap pt-5">
+      {% if user.is_authenticated %}
+      <h3 class="mb-5">Leave a comment</h3>
+      <form id="commentForm" class="p-3 bg-light" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="message">Comment</label>
+            {{commentForm|crispy}}
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Post Comment" class="btn py-3 px-3 btn-primary">
+        </div>
+
+      </form>
+      {% else %}
+      <div class="alert alert-info">
+        <h6> Please login to be able to comment </h6>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div><!-- END-->
+{% endblock content %}

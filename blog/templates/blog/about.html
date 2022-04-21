@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+{% block nav_about %}{% endblock nav_about %}
+{% block content %}
+<main id="main"><!--CONTENT--><article itemscope="" itemtype="http://schema.org/Article" class="main-article text-content"><h1 class="offscreen">Papis Sahine Diallo</h1><img src="/demo/about-david-walsh.jpg" alt="Papis Sahine Diallo">
+
+  My name is Papis Sahine Diallo. I'm a  web developer and software engineer using mainly <b>Python</b> and <b>Django</b>. In the web world I'm
+   work on algorithmic problems like:
+  <ul>
+     <li style="list-style-type: none">
+  <ul>
+     <li>Findind the shortest path using A* algorithm. <a href="#">take a look at this project here</a></li>
+     <li>Finance Stock Market Plotting with pandas and matplotlib<a href="#" rel="nofollow"> Here</a></li>
+     <li>Sorting Algorithms Visualization like<a href="/"> merge and quick sort.</a> </li>
+  </ul>
+  </li>
+  </ul>
+  In the world of the web development I worked on various projects such as:
+  <ul>
+     <li style="list-style-type: none">
+  <ul>
+     <li>Project management System named<a href="//sitepen.com" rel="nofollow"> Saga Software</a></li>
+     <li>A real time <a href="/" rel="nofollow">Social Medai app</a> with django and django-channels</li>
+     <li><a href="/" rel="nofollow">Inventory Management System</a></li>
+     <li>A blog Post which is My Current Blog<a href="#" rel="nofollow"> PSDiallo Blog</a></li>
+  </ul>
+  </li>
+  </ul>
+  I don't design the sites, I make them work.
+  <h2>Technologies and Philosophy</h2>
+  My expertise and interest lies mostly in back-end technologies, using the python framework <b>DJANGO</b>. 
+  my front-end side revolve around redesigning templates on my taste by using HTML/5, CSS, JavaScript (as well as frameworks like jQuery, and little bit of react native). 
+   Right now I focus on getting my foot into open source contributing, as they open a world of possibilities and rewards for their hard-working developers.
+   But most importantly continue learning and growing. <br><br>
+  
+  My philosophy on learning to use web technologies is always the same: If you do something without failing that's not probably the good one. Reading books will only get you so far -- you should spend time with your debugger, experimenting away with whichever technology you need to learn. Always keep an open mind, use tools you wouldn't usually use, and never give up.
+  <h2>Contacting Me</h2>
+  You can get in touch with 24/7. Visit the <a href="/contact">contact</a> page to find out how you can get in touch.</article></main>
+
+  {% endblock content %}
+  {% block aside %}
+  {% include "blog/aside.html" with categories=categories %}
+  {% endblock aside %}
