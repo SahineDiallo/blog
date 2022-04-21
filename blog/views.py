@@ -91,7 +91,7 @@ def contact(request):
         if form.is_valid():
             email_data = dict()
             email_data["subject"] = "Thanks For contacted me"
-            email_data["to_email"] = form.cleaned_data.get("email", "")
+            email_data["to"] = form.cleaned_data.get("email", "")
             email_data[
                 "email_body"
             ] = "Thank you for contacting me. We will be in touch as soon as possible!\n Please feel free to reply for any question or request.\n Best Regards!!\n Sahine"
